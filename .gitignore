@@ -2,3 +2,4 @@
 !.yarn/releases
 
 node_modules
+.vercel
