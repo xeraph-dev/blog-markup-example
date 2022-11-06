@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign in | Blog</title>
+    <title>Sign up | Blog</title>
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.1/dist/iconify-icon.min.js"></script>
@@ -17,9 +17,9 @@
     >
       <div class="flex justify-between">
         <div class="flex items-baseline gap-1">
-          <h1 class="text-xl font-bold">Sign in</h1>
+          <h1 class="text-xl font-bold">Sign up</h1>
           <span class="font-light">|</span>
-          <a class="text-cyan-600" href="/signup.html">Sign up</a>
+          <a class="text-cyan-600" href="/signin.html">Sign in</a>
         </div>
         <button
           id="change-theme"
@@ -36,6 +36,16 @@
           name="username"
           placeholder="adrian"
           type="text"
+          required
+          class="h-8 p-2 rounded-sm outline-none bg-slate-500 backdrop-blur-lg bg-opacity-5 placeholder:font-light text-slate-900 dark:text-slate-200"
+        />
+      </label>
+      <label class="flex items-center gap-2">
+        <iconify-icon icon="tabler:mail" height="1.2rem"></iconify-icon>
+        <input
+          name="email"
+          placeholder="adrian@email.com"
+          type="email"
           required
           class="h-8 p-2 rounded-sm outline-none bg-slate-500 backdrop-blur-lg bg-opacity-5 placeholder:font-light text-slate-900 dark:text-slate-200"
         />
