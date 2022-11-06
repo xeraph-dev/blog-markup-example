@@ -32,7 +32,7 @@
         const slide = document.querySelector('#slide-template').content.cloneNode(true)
 
         const img = slide.querySelector('img')
-        img.src = `/img/post-${post.id}.jpg`
+        img.src = post.image
         img.alt = `post ${post.id}`
 
         const title = slide.querySelector('h3')
@@ -48,7 +48,7 @@
         body.innerText = post.body.at(0)
 
         const link = slide.querySelector('a')
-        link.href = `/post-${post.id}.html`
+        link.href = `/post/${post.id}.html`
 
         slides.push(slide)
       }
@@ -62,7 +62,7 @@
         <iconify-icon icon="tabler:brand-blogger" height="2rem"></iconify-icon>
         <span class="text-2xl font-bold">log</span>
       </div>
-      <div>
+      <div class="flex gap-2">
         <button
           id="change-theme"
           title="Change theme"
@@ -71,6 +71,11 @@
         >
           <iconify-icon icon="tabler:sun" height="1.5rem"></iconify-icon>
         </button>
+        <a
+          href="/signin.html"
+          class="px-2 py-0.5 rounded-md shadow-sm bg-blue-700 text-slate-200"
+          >Enter</a
+        >
       </div>
     </header>
     <main class="flex flex-col gap-4 grow">
@@ -88,13 +93,13 @@
         <h2 class="text-xl font-bold">All posts</h2>
         <div class="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <template x-for="post in posts" :key="post.id">
-            <a x-bind:href="`/post-${post.id}.html`">
+            <a x-bind:href="`/post/${post.id}.html`">
               <article
-                class="overflow-hidden transition-transform duration-300 rounded-md shadow-md hover:scale-105 bg-slate-300/50 dark:bg-slate-700/50"
+                class="overflow-hidden rounded-md shadow-md bg-slate-300/50 dark:bg-slate-700/50"
               >
-                <figure class="aspect-w-16 aspect-h-6">
+                <figure class="overflow-hidden aspect-w-16 aspect-h-6">
                   <img
-                    class="object-cover object-center"
+                    class="object-cover object-center transition-transform duration-300 hover:scale-105"
                     x-bind:src="post.image"
                     x-bing:alt="`post ${post.id}`"
                   />
@@ -125,7 +130,9 @@
     </footer>
     <template id="slide-template">
       <article class="swiper-slide">
-        <img class="transition-transform duration-300 hover:scale-105" />
+        <img
+          class="object-cover object-center transition-transform duration-300 hover:scale-105"
+        />
         <a
           class="absolute p-1 rounded-md text-cyan-600 bottom-2 left-2 bg-gray-800/75"
         >
