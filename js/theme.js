@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateThemeIcon(theme) {
     const changeThemeIcon = changeTheme.querySelector("iconify-icon");
     changeThemeIcon.setAttribute("icon", `tabler:${theme ? "sun" : "moon"}`);
+    document.documentElement.style.colorScheme = theme ? "dark" : "light";
   }
 
   updateThemeIcon(localStorage.getItem("theme") === "true");
